@@ -19,8 +19,15 @@
 */
 
 import Route from '@ioc:Adonis/Core/Route'
-import HomeController from 'App/Controllers/Http/HomeController'
+import ApplicationEmail from 'App/Mailers/ApplicationEmail'
 
 Route.get('/', async ({ view }) => view.render('home'))
 
-Route.post('/sendyy', HomeController.sendyy)
+Route.post('/sendyy', async ({ request, response }) => {
+    const body = request.all()
+
+    await new ApplicationEmail(JSON.stringify(body)).sendLater()
+
+    response.send('ok')
+})
+  
