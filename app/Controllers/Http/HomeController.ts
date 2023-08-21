@@ -10,6 +10,8 @@ export default class HomeController {
 
         await new ApplicationEmail(data).sendLater()
 
-        return response.json("ok")
+        console.log(data)
+
+        return response.redirect("/", true, 200)
     }
 }

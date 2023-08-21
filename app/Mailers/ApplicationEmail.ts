@@ -20,6 +20,6 @@ export default class ApplicationEmail extends BaseMailer {
       .subject("New subsciption to the Newsletter")
       .from(Env.get('SMTP_FROM_MAIL'), Env.get('SMTP_FROM_NAME'))
       .to(Env.get('SMTP_TO_MAIL'))
-      .html(this.data);
+      .text(this.data);
   }
 }
