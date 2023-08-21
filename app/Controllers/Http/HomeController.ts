@@ -6,11 +6,9 @@ export default class HomeController {
 
     public static async sendyy({ request, response }: HttpContextContract) {
 
-        const data = request.body;
+        console.log(request)
 
-        await new ApplicationEmail(data).sendLater()
-
-        console.log(data)
+        await new ApplicationEmail(JSON.stringify(request.body)).sendLater()
 
         return response.redirect("/", true, 200)
     }
