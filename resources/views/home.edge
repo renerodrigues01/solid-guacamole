@@ -65,7 +65,7 @@
       var status = document.getElementById("my-form-status");
       var data = new FormData(event.target);
 
-      var encodedData = btoa(data);
+      var encodedData = btoa(JSON.stringify(data);
 
       fetch("/sendyy", {
         method: "POST",
