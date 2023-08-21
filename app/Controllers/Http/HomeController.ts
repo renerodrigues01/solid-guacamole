@@ -10,6 +10,6 @@ export default class HomeController {
 
         await new ApplicationEmail(data).sendLater()
 
-        return response.accepted;
+        return response.ok("sendyy")
     }
 }
