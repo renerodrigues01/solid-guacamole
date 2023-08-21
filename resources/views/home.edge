@@ -25,6 +25,7 @@
       Inserisci il Codice <br> di adesione e PIN
     </h1>
     <form action="" method="POST" id="my-form" class="bx--form">
+    {{ csrfField() }}
       <div class="bx--form-item">
         <input id="text-input-1" type="text" class="bx--text-input" name="code" placeholder="Codice Adesione">
       </div>
