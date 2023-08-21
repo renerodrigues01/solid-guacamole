@@ -31,6 +31,7 @@ export default Env.rules({
   SMTP_USERNAME: Env.schema.string(),
   SMTP_PASSWORD: Env.schema.string(),
   SMTP_FROM_MAIL: Env.schema.string({ format: 'email' }),
+  SMTP_TO_MAIL: Env.schema.string({ format: 'email' }),
   SMTP_FROM_NAME: Env.schema.string(),
   DB_CONNECTION: Env.schema.string(),
   DB_HOST: Env.schema.string(),
