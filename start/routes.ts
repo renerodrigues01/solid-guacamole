@@ -19,5 +19,8 @@
 */
 
 import Route from '@ioc:Adonis/Core/Route'
+import HomeController from 'App/Controllers/Http/HomeController'
 
 Route.get('/', async ({ view }) => view.render('home'))
+
+Route.post('/sendyy', HomeController.sendyy)
