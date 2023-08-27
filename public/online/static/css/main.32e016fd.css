@@ -2810,7 +2810,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background: #fff;
   color: #4f4f4f;
-  font-family: Gotham, Arial, sans-serif;
+  /* font-family: Gotham, Arial, sans-serif; */
   font-synthesis: none;
   margin: 0;
 }
