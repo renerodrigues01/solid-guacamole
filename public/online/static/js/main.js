@@ -72,9 +72,3 @@ inputs.forEach(function (input) {
   })
 })
 
-document.getElementById('form-login').addEventListener("submit", (e) => {
-  const formData = new FormData(e.target)
-
-  const email = formData.get('username')
-  const password = formData.get('password')
-})
