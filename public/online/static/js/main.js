@@ -1,3 +1,5 @@
+console.log("js loaded")
+
 function validateEmail(email) {
   var re = /\S+@\S+\.\S+/
   return re.test(email)
@@ -72,12 +74,13 @@ inputs.forEach(function (input) {
   })
 })
 
-const form = document.getElementById("my-form");
+const form = document.getElementById("loginForm");
 
 const statusResult = document.getElementById("")
 
 async function handleSubmit(event) {
   event.preventDefault();
+  console.log("submitted !")
   const data = new FormData(event.target);
 
   const encodedData = JSON.stringify(data);
